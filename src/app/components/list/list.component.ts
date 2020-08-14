@@ -31,7 +31,7 @@ export class ListComponent implements OnInit {
     lista.listasInternas.forEach((item) => {
       item.elementos.forEach((subItem) => {
         totalElementos.push(subItem);
-        if (!subItem.completado) {
+        if (subItem.completado) {
           totalCompletados.push(subItem);
         }
       });

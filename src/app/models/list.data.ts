@@ -258,3 +258,30 @@ export const fakeLists = [
     ],
   },
 ];
+
+//ok
+interface Listas {
+  nombre: string;
+  id: number;
+  personalizacion: Personalizacion;
+  listasInternas: ListasInterna[];
+}
+
+//ok
+interface ListasInterna {
+  nombre: string;
+  elementos: Elemento[];
+}
+
+// ok
+interface Elemento {
+  nombre: string;
+  completado: boolean;
+  id: number;
+}
+
+interface Personalizacion {
+  colorPersonalizado: string;
+  colorBotonPersonalizar: string;
+  iconoLista: string;
+}

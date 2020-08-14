@@ -4,7 +4,7 @@
   <span class="example-spacer"></span>
   <button mat-icon-button
           (click)="mostrarBuscador = !mostrarBuscador"
-          class="example-icon"
+          class="example-icon mr-3"
           aria-label="Example icon-button with share icon">
     <mat-icon>search</mat-icon>
   </button>
@@ -14,7 +14,7 @@
 </mat-toolbar>
 <!-- Fin del toolbar -->
 <!-- Inicio del buscador -->
-<div class="row animate__animated animate__fadeInDown shadow "
+<div class="row animate__animated animate__fadeInDown sombra "
      style="background-color: #3f51b5b4;"
      *ngIf="mostrarBuscador">
   <div class="col-4 offset-sm-8 mt-2">
@@ -36,7 +36,7 @@
     </mat-form-field>
   </div>
 </div>
-<div class="row animate__animated animate__fadeInDown shadow "
+<div class="row animate__animated animate__fadeInDown sombra "
      style="background-color: #ffd740bd;"
      *ngIf="mostrarCreador">
   <div class="col-4 offset-sm-8 mt-2">

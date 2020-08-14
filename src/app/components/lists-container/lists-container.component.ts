@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { fakeLists } from '../../models/list.data';
 import { Lista } from '../../models/lista.class';
+import { ListsManagerService } from '../../services/lists-manager.service';
 
 @Component({
   selector: 'app-lists-container',
@@ -8,19 +8,19 @@ import { Lista } from '../../models/lista.class';
   styleUrls: ['./lists-container.component.scss'],
 })
 export class ListsContainerComponent implements OnInit {
-  listas: any = [];
+  listas: Lista[] = [];
   value = '';
   mostrarBuscador = false;
   mostrarCreador = false;
-  constructor() {
-    this.listas = fakeLists;
+  constructor(private listsManagerService: ListsManagerService) {
+    this.listas = this.listsManagerService.listas;
   }
 
   ngOnInit(): void {}
 
   filtrar(filtro) {
     if (filtro === '') {
-      this.listas = fakeLists;
+      this.listas = this.listsManagerService.listas;
       return;
     }
     this.listas = this.listas.filter((item) => {
@@ -35,7 +35,7 @@ export class ListsContainerComponent implements OnInit {
   }
 
   showListas() {
-    console.log(this.listas);
+    this.listsManagerService.guardarListasLocalStorage(this.listas);
   }
 
   crearLista(nombre: string) {

@@ -1,0 +1,12 @@
+.cardLista {
+  // width: 250px !important;
+}
+.espaciado {
+  flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 400px) {
+  mat-form-field {
+    width: 150px !important;
+  }
+}

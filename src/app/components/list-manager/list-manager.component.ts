@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { fakeLists } from '../../models/list.data';
+
 import { ListaInterna } from 'src/app/models/listaInterna.class';
+import { Lista } from '../../models/lista.class';
+import { ListsManagerService } from '../../services/lists-manager.service';
 
 @Component({
   selector: 'app-list-manager',
@@ -9,11 +11,16 @@ import { ListaInterna } from 'src/app/models/listaInterna.class';
   styleUrls: ['./list-manager.component.scss'],
 })
 export class ListManagerComponent implements OnInit {
-  lista: any;
+  lista: Lista;
   ocultarCompletados = false;
   mostrarNuevaSublista = false;
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.lista = fakeLists[this.activatedRoute.snapshot.params.id];
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private listsManagerService: ListsManagerService
+  ) {
+    this.lista = this.listsManagerService.listas[
+      this.activatedRoute.snapshot.params.id
+    ];
   }
 
   ngOnInit(): void {}

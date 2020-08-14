@@ -1,0 +1,86 @@
+<mat-toolbar color="primary">
+  <mat-icon class="pointer mr-3"
+            [routerLink]="['/']">arrow_back</mat-icon>
+  <span>{{lista.nombre}}</span>
+  <span class="espaciadoFlex"></span>
+</mat-toolbar>
+
+<div class="container tamanioLimitado mt-5">
+  <div class="row justify-content-between">
+    <div class="col-6 mt-3 text-right">
+      Editar nombre de la lista
+    </div>
+    <div class="col-6">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Nombre de la lista</mat-label>
+        <input matInput
+               [(ngModel)]="lista.nombre"
+               placeholder="Introduzca un nombre para la lista" />
+        <button mat-button
+                *ngIf="lista.nombre"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="lista.nombre=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-6  text-right">
+      Elegir icono
+    </div>
+    <div class="col-6">
+      <mat-icon *ngFor="let icono of listaIconos"
+                class="pointer"
+                (click)="lista.personalizacion.iconoLista = icono">{{icono}}</mat-icon>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-6  text-right">
+      Elegir color de tarjeta
+    </div>
+    <div class="col-6">
+      <input type="color"
+             id="html5colorpicker"
+             [(ngModel)]="lista.personalizacion.colorPersonalizado"
+             [value]="lista.personalizacion.colorPersonalizado"
+             style="width:40%;">
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+
+    <button mat-raised-button
+            (click)="guardarCambios()"
+            color="primary">Guardar cambios</button>
+  </div>
+</div>
+
+
+<div class="row justify-content-center my-5 ajustar">
+  <div class="col-auto ">
+    <mat-card class="cardLista p-3"
+              [ngStyle]="{backgroundColor: lista.personalizacion.colorPersonalizado}">
+      <mat-card-header>
+        <mat-card-title>{{indice + 1}}. {{lista.nombre}}</mat-card-title>
+        <mat-icon *ngIf="lista.personalizacion.iconoLista">{{lista.personalizacion.iconoLista}}</mat-icon>
+      </mat-card-header>
+      <mat-card-actions class="pl-4 pt-0 ">
+        <div class="row justify-content-between">
+          <div class="col-4">
+            <button mat-raised-button
+                    [color]="lista.personalizacion.colorBotonPersonalizar">Personalizar</button>
+          </div>
+          <div class="col-4">
+            <button mat-mini-fab
+                    color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

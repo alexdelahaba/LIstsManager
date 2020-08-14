@@ -7,18 +7,26 @@
       <mat-card-subtitle class="mb-1">{{datosLista.elementosTotales}} elementos</mat-card-subtitle>
       <mat-icon *ngIf="lista.personalizacion.iconoLista">{{lista.personalizacion.iconoLista}}</mat-icon>
     </mat-card-header>
-    <!-- <mat-card-content>
+    <mat-card-content>
+      <mat-progress-bar mode="determinate"
+                        [value]="datosLista.porcentajeCompletado"></mat-progress-bar>
 
-    </mat-card-content> -->
+    </mat-card-content>
     <mat-card-actions class="pl-4 pt-0">
-      <button mat-raised-button
-              [color]="lista.personalizacion.colorBotonPersonalizar">Personalizar</button>
-      <button mat-mini-fab
-              class="ml-4 mt-3"
-              (click)="openDialog(lista.id)"
-              color="warn">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <button mat-raised-button
+                  [routerLink]="['/edit', indice]"
+                  [color]="lista.personalizacion.colorBotonPersonalizar">Personalizar</button>
+        </div>
+        <div class="col-4">
+          <button mat-mini-fab
+                  (click)="openDialog(lista.id)"
+                  color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>
