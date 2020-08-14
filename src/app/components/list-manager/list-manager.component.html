@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+  <mat-icon class="pointer mr-3"
+            [routerLink]="['/']">arrow_back</mat-icon>
+  <span class="d-none d-sm-block">{{lista.nombre}}</span>
+  <span class="espaciadoFlex"></span>
+
+  <mat-slide-toggle class="font-weight-light mr-5"
+                    [checked]="ocultarCompletados"
+                    (change)="ocultarCompletados = !ocultarCompletados">
+    Ver completados
+  </mat-slide-toggle>
+
+</mat-toolbar>
+<div class="text-center mt-3"
+     *ngIf="mostrarNuevaSublista">
+  <mat-form-field class="example-form-field w-75 ">
+    <mat-label class="font-weight-bold h6">Añadir una sublista</mat-label>
+    <input matInput
+           #nombreSublista
+           autocomplete="off"
+           type="text">
+    <button mat-button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button
+          color="primary"
+          (click)="agregarSublista(nombreSublista.value); nombreSublista.value = ''"
+          class="ml-2">Añadir</button>
+</div>
+<app-sublist *ngFor="let lista of lista.listasInternas"
+             [sublista]="lista"
+             [ocultarCompletados]="ocultarCompletados"></app-sublist>
+<div class="row">
+  <div class="col-2 offset-9 mt-5 mb-3">
+    <button mat-fab
+            class="ml-3"
+            [ngClass]="{'botonSeleccionado': !mostrarNuevaSublista}"
+            (click)="mostrarNuevaSublista =!mostrarNuevaSublista"
+            color="accent">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+
+  </div>
+</div>

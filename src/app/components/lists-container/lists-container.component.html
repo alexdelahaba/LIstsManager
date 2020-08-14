@@ -1,0 +1,80 @@
+<!-- Inicio del toolbar -->
+<mat-toolbar color="primary">
+  <span>Mis listas</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button
+          (click)="mostrarBuscador = !mostrarBuscador"
+          class="example-icon"
+          aria-label="Example icon-button with share icon">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-flat-button
+          color="accent"
+          (click)="mostrarCreador = !mostrarCreador">Crear nueva lista</button>
+</mat-toolbar>
+<!-- Fin del toolbar -->
+<!-- Inicio del buscador -->
+<div class="row animate__animated animate__fadeInDown shadow "
+     style="background-color: #3f51b5b4;"
+     *ngIf="mostrarBuscador">
+  <div class="col-4 offset-sm-8 mt-2">
+    <mat-form-field class="example-form-field">
+      <mat-label class="text-white">Buscar</mat-label>
+      <input matInput
+             type="text"
+             #filtro
+             autocomplete="off"
+             (keyup)="filtrar(filtro.value)">
+      <button mat-button
+              *ngIf="filtro.value"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="filtrar(''); filtro.value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>
+<div class="row animate__animated animate__fadeInDown shadow "
+     style="background-color: #ffd740bd;"
+     *ngIf="mostrarCreador">
+  <div class="col-4 offset-sm-8 mt-2">
+    <mat-form-field class="example-form-field">
+      <mat-label>Nombre nueva lista</mat-label>
+      <input matInput
+             type="text"
+             #nombreNuevaLista
+             autocomplete="off">
+      <button mat-button
+              *ngIf="nombreNuevaLista.value"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="crearLista(''); nombreNuevaLista.value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-flat-button
+            color="primary"
+            class="ml-2"
+            (click)="crearLista(nombreNuevaLista.value)">Crear nueva lista</button>
+  </div>
+</div>
+
+<!-- Fin del buscador -->
+
+
+<div class="container">
+  <div class="row">
+
+    <app-list *ngFor="let item of listas; let i = index"
+              [lista]="item"
+              (emisorIndiceEliminar)="eliminarLista($event)"
+              [indice]="i"></app-list>
+
+  </div>
+</div>
+
+
+<button (click)="showListas()">Mostrar estados de listas</button>
