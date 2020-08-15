@@ -12,7 +12,7 @@ export class ListsContainerComponent implements OnInit {
   value = '';
   mostrarBuscador = false;
   mostrarCreador = false;
-  constructor(private listsManagerService: ListsManagerService) {
+  constructor(public listsManagerService: ListsManagerService) {
     this.listas = this.listsManagerService.listas;
   }
 
@@ -32,16 +32,16 @@ export class ListsContainerComponent implements OnInit {
     this.listas = this.listas.filter((lista) => {
       return lista.id !== id;
     });
-  }
-
-  showListas() {
     this.listsManagerService.guardarListasLocalStorage(this.listas);
   }
 
   crearLista(nombre: string) {
-    // console.log(this.listas);
     let nuevaLista = new Lista(nombre);
-
     this.listas.push(nuevaLista);
+    this.listsManagerService.guardarListasLocalStorage(this.listas);
+  }
+
+  imprimirListas() {
+    console.log(this.listsManagerService.listas);
   }
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-3">
-    <div class="col-10">
+    <div class="col-9">
       <div class="tituloSublista text-center text-white my-1 p-1"
            *ngIf="!mostrarEdicion"
            [ngClass]="{'listaInternaSeleccionada': mostrarEdicion}">{{sublista.nombre | titlecase}}</div>
@@ -9,19 +9,25 @@
         <input matInput
                #nuevoNombre
                [value]="sublista.nombre"
-               (keyup)="sublista.nombre = nuevoNombre.value "
+               (keyup)="sublista.nombre = nuevoNombre.value; guardarDatosActualizarSublita()"
                autocomplete="off"
                placeholder="Item">
       </div>
     </div>
 
+    <div class="col-1 mr-3"
+         *ngIf="mostrarEdicion">
+      <button mat-mini-fab
+              color="warn"
+              (click)="borrarSublista()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
     <div class="col-1 mr-3">
       <button mat-mini-fab
               (click)="mostrarEdicion = !mostrarEdicion"
               color="primary"
-              [ngClass]="{'listaInternaSeleccionada': mostrarEdicion}"
-              class="botonAniadirElemento"
-              aria-label="Example icon button with a plus one icon">
+              [ngClass]="{'listaInternaSeleccionada': mostrarEdicion}">
         <mat-icon>edit</mat-icon>
       </button>
     </div>
@@ -37,6 +43,7 @@
           <mat-label>Añadir elemento</mat-label>
           <input matInput
                  #nuevoElemento
+                 (keyup.enter)="agregarElemento(nuevoElemento.value); nuevoElemento.value=''"
                  autocomplete="off"
                  placeholder="Item">
         </mat-form-field>
@@ -51,27 +58,32 @@
   </div>
 
   <div class="row">
-    <ng-container *ngFor="let itemLista of sublista.elementos">
+    <ng-container *ngFor="let itemLista of sublista.elementos; let indice = index">
+      <ng-container *ngIf=" !(ocultarCompletados && itemLista.completado)">
 
-      <div class="col-11">
-        <mat-selection-list #options>
 
-          <mat-list-option (click)="itemLista.completado = !itemLista.completado"
-                           *ngIf=" !(ocultarCompletados && itemLista.completado)"
-                           [selected]="itemLista.completado">
-            {{itemLista.nombre | titlecase}}
+        <div class="col-11">
+          <mat-selection-list #options>
 
-          </mat-list-option>
+            <mat-list-option (click)="marcarCompletado(itemLista, indice)"
+                             [selected]="itemLista.completado">
+              {{itemLista.nombre | titlecase}}
 
-        </mat-selection-list>
-      </div>
-      <div class="col-1 align-self-center mt-2"
-           *ngIf="mostrarEdicion">
-        <mat-icon color="warn"
-                  (click)="eliminarElemento(itemLista)"
-                  class="pointer">delete</mat-icon>
-      </div>
+            </mat-list-option>
+
+          </mat-selection-list>
+        </div>
+        <div class="col-1 align-self-center mt-2"
+             *ngIf="mostrarEdicion">
+          <mat-icon color="warn"
+                    (click)="eliminarElemento(itemLista)"
+                    class="pointer">delete</mat-icon>
+        </div>
+      </ng-container>
     </ng-container>
   </div>
 
 </div>
+
+
+<button (click)="imprimirlisat()">imprimir estado lista</button>

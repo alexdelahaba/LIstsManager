@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { iconosEjemplo } from '../../models/icons.data';
 import { Lista } from '../../models/lista.class';
 import { ListsManagerService } from './../../services/lists-manager.service';
+import { PopupService } from './../../services/popup.service';
 
 @Component({
   selector: 'app-personalizar',
@@ -17,7 +18,9 @@ export class PersonalizarComponent implements OnInit {
   listaIconos = iconosEjemplo;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private listsManagerService: ListsManagerService
+    private listsManagerService: ListsManagerService,
+    private popUpService: PopupService,
+    private router: Router
   ) {
     this.indice = Number(this.activatedRoute.snapshot.params.id);
   }
@@ -29,6 +32,8 @@ export class PersonalizarComponent implements OnInit {
   }
 
   guardarCambios() {
+    this.popUpService.lanzarPopUp('Cambios guardados');
     this.listsManagerService.guardarUnaListaLocalStorage(this.lista);
+    this.router.navigateByUrl('/listas');
   }
 }

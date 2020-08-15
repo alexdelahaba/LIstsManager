@@ -1,6 +1,6 @@
 <!-- Inicio del toolbar -->
 <mat-toolbar color="primary">
-  <span>Mis listas</span>
+  <span class="d-none d-sm-block">Mis listas</span>
   <span class="example-spacer"></span>
   <button mat-icon-button
           (click)="mostrarBuscador = !mostrarBuscador"
@@ -10,9 +10,14 @@
   </button>
   <button mat-flat-button
           color="accent"
-          (click)="mostrarCreador = !mostrarCreador">Crear nueva lista</button>
+          (click)="mostrarCreador = !mostrarCreador">Crear lista</button>
+  <button mat-flat-button
+          *ngIf="!listsManagerService.esInvitado"
+          class="ml-1 botonGuardarNube"
+          (click)="listsManagerService.setDatosDDBB()">Guardar <mat-icon class="text-white">cloud</mat-icon></button>
 </mat-toolbar>
 <!-- Fin del toolbar -->
+
 <!-- Inicio del buscador -->
 <div class="row animate__animated animate__fadeInDown sombra "
      style="background-color: #3f51b5b4;"
@@ -45,6 +50,7 @@
       <input matInput
              type="text"
              #nombreNuevaLista
+             (keyup.enter)="crearLista(nombreNuevaLista.value)"
              autocomplete="off">
       <button mat-button
               *ngIf="nombreNuevaLista.value"
@@ -58,23 +64,28 @@
     <button mat-flat-button
             color="primary"
             class="ml-2"
-            (click)="crearLista(nombreNuevaLista.value)">Crear nueva lista</button>
+            (click)="crearLista(nombreNuevaLista.value)">Crear lista</button>
   </div>
 </div>
 
 <!-- Fin del buscador -->
 
 
-<div class="container">
+<div class="container"
+     *ngIf="this.listsManagerService.listas.length !== 0">
   <div class="row">
 
-    <app-list *ngFor="let item of listas; let i = index"
+    <app-list *ngFor="let item of this.listsManagerService.listas; let i = index"
               [lista]="item"
               (emisorIndiceEliminar)="eliminarLista($event)"
               [indice]="i"></app-list>
 
   </div>
 </div>
+<div class="alert alert-danger text-center"
+     *ngIf="this.listsManagerService.listas.length === 0"
+     role="alert">
+  <b>No has creado ninguna lista, por favor, hazlo con el botón en la parte superior derecha de la pantalla</b>
+</div>
 
-
-<button (click)="showListas()">Mostrar estados de listas</button>
+<button (click)="imprimirListas()">imprimir listas</button>

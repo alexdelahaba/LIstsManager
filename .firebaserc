@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "listsmanager-3f721": {
+      "hosting": {
+        "listsManager": [
+          "listsmanager-3f721"
+        ]
+      }
+    }
+  }
+}

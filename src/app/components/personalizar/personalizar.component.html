@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-icon class="pointer mr-3"
-            [routerLink]="['/']">arrow_back</mat-icon>
+            [routerLink]="['/listas']">arrow_back</mat-icon>
   <span>{{lista.nombre}}</span>
   <span class="espaciadoFlex"></span>
 </mat-toolbar>
@@ -57,9 +57,10 @@
             color="primary">Guardar cambios</button>
   </div>
 </div>
+<hr>
 
-
-<div class="row justify-content-center my-5 ajustar">
+<h2 class="text-center mt-3">Previsualizar cambios:</h2>
+<div class="row justify-content-center my-1 ajustar">
   <div class="col-auto ">
     <mat-card class="cardLista p-3"
               [ngStyle]="{backgroundColor: lista.personalizacion.colorPersonalizado}">
