@@ -3,10 +3,10 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
   Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import * as moment from 'moment';
+
 import { ListsManagerService } from '../services/lists-manager.service';
 
 @Injectable({
@@ -23,7 +23,9 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     console.log('guarda');
-    if (this.listManager.auth || this.listManager.esInvitado) {
+    const testEntrada = this.listManager.auth || this.listManager.esInvitado;
+    const testHora = moment(sessionStorage.getItem('validHour')) > moment();
+    if (testEntrada || testHora) {
       return true;
     } else {
       this.router.navigateByUrl('/');

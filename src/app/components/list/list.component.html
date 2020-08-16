@@ -1,32 +1,41 @@
-<div class="col">
+<mat-card class="cardLista"
+          [ngStyle]="{backgroundColor: lista.personalizacion.colorPersonalizado}">
 
-  <mat-card class="cardLista p-3"
-            [ngStyle]="{backgroundColor: lista.personalizacion.colorPersonalizado}">
-    <mat-card-header [routerLink]="['/lista', indice]">
-      <mat-card-title>{{indice + 1}}. {{lista.nombre}}</mat-card-title>
-      <mat-card-subtitle class="mb-1">{{datosLista.elementosTotales}} elementos</mat-card-subtitle>
+  <mat-card-header [routerLink]="['/lista', indice]"
+                   class="row">
+
+    <div class="col-10 align-self-start overflow-hidden pl-2">
+      <mat-card-title>{{lista.nombre}}</mat-card-title>
+    </div>
+    <div class="col-2 px-1">
+
       <mat-icon *ngIf="lista.personalizacion.iconoLista">{{lista.personalizacion.iconoLista}}</mat-icon>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-progress-bar mode="determinate"
-                        [value]="datosLista.porcentajeCompletado"></mat-progress-bar>
+    </div>
+    <div class="col-12 text-center ">
 
-    </mat-card-content>
-    <mat-card-actions class="pl-4 pt-0">
-      <div class="row justify-content-between">
-        <div class="col-4">
-          <button mat-raised-button
-                  [routerLink]="['/editar', indice]"
-                  [color]="lista.personalizacion.colorBotonPersonalizar">Personalizar</button>
-        </div>
-        <div class="col-4">
-          <button mat-mini-fab
-                  (click)="openDialog(lista.id)"
-                  color="warn">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-</div>
+      <mat-card-subtitle class="mb-1 ">{{datosLista.elementosTotales}} elementos</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-progress-bar mode="determinate"
+                      [value]="datosLista.porcentajeCompletado"></mat-progress-bar>
+
+  </mat-card-content>
+  <div class="row justify-content-between">
+
+    <div class="col-4">
+      <button mat-raised-button
+              [routerLink]="['/editar', indice]"
+              [color]="lista.personalizacion.colorBotonPersonalizar">Personalizar</button>
+    </div>
+    <div class="col-2 col-sm-4 col-lg-2 pr-2 pl-0">
+      <button mat-mini-fab
+              (click)="openDialog(lista.id)"
+              color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+  </div>
+</mat-card>

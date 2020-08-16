@@ -7,8 +7,16 @@ import { AuthComponent } from './components/auth/auth.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'lista/:id', component: ListManagerComponent },
-  { path: 'editar/:id', component: PersonalizarComponent },
+  {
+    path: 'lista/:id',
+    component: ListManagerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editar/:id',
+    component: PersonalizarComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'listas',
     component: ListsContainerComponent,

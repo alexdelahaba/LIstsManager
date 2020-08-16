@@ -31,7 +31,6 @@ export class SublistComponent implements OnInit {
     }
     const nuevoElemento = new Elemento(elementoNombre);
     this.sublista.elementos.push(nuevoElemento);
-    console.log(this.sublista);
     this.guardarDatosActualizarSublita();
   }
 
@@ -40,7 +39,6 @@ export class SublistComponent implements OnInit {
       this.sublista.elementos.indexOf(itemLista),
       1
     );
-    console.log(this.sublista);
     this.guardarDatosActualizarSublita();
   }
 
@@ -56,8 +54,6 @@ export class SublistComponent implements OnInit {
   }
 
   marcarCompletado(itemLista, indice) {
-    console.log(itemLista);
-    console.log(indice);
     this.sublista.elementos[indice].completado = !this.sublista.elementos[
       indice
     ].completado;
@@ -66,7 +62,6 @@ export class SublistComponent implements OnInit {
 
   borrarSublista() {
     const dialogBorrarLista = this.dialog.open(DialogComponent);
-
     dialogBorrarLista.afterClosed().subscribe((result) => {
       if (result) {
         this.borrarSublistaEvento.emit(this.sublista.id);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import * as moment from 'moment';
+
 import {
   FormGroup,
   FormBuilder,
@@ -23,7 +24,7 @@ export class AuthComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('123456', [Validators.required]),
   });
-
+  validez: moment.Moment = moment();
   constructor(
     public auth: AngularFireAuth,
     private fb: FormBuilder,
@@ -36,6 +37,7 @@ export class AuthComponent implements OnInit {
         localStorage.getItem('emailListsManager')
       );
     }
+    this.validez = moment().add(1, 'h');
   }
 
   ngOnInit(): void {}
@@ -48,12 +50,14 @@ export class AuthComponent implements OnInit {
           authForm.value.password
         )
         .then((resp: any) => {
+          localStorage.setItem('emailListsManager', authForm.value.email);
           this.listsManagerService.guardarUid(resp.user.uid);
           this.listsManagerService.usuario = resp.user;
-          localStorage.setItem('emailListsManager', authForm.value.email);
+          sessionStorage.setItem('validHour', this.validez.toISOString());
           sessionStorage.setItem('esInvitado', 'false');
-          this.listsManagerService.getDatosDDBB(resp);
-          this.router.navigateByUrl('/listas');
+          this.listsManagerService.esInvitado = false;
+          this.listsManagerService.auth = true;
+          this.listsManagerService.getDatosDDBB(true);
         })
         .catch((err) => {
           console.log('ERROR');
@@ -68,8 +72,17 @@ export class AuthComponent implements OnInit {
   }
 
   esInvitado() {
+    sessionStorage.setItem('validHour', this.validez.toISOString());
+    this.listsManagerService.auth = false;
     this.listsManagerService.esInvitado = true;
     sessionStorage.setItem('esInvitado', 'true');
     this.router.navigateByUrl('/listas');
+  }
+
+  mandarMailContrasenia() {
+    this.auth.sendPasswordResetEmail(this.authForm.value.email);
+    this.popUpService.lanzarPopUp(
+      'Se ha enviado un email a: ' + this.authForm.value.email
+    );
   }
 }

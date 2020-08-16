@@ -1,7 +1,14 @@
 .cardLista {
   cursor: pointer;
-  max-width: 250px;
+
   margin-left: 1em;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.mat-card-header-text {
+}
+
+::ng-deep .mat-card-header-text {
+  display: none;
 }

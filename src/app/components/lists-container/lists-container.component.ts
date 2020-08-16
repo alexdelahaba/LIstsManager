@@ -12,11 +12,11 @@ export class ListsContainerComponent implements OnInit {
   value = '';
   mostrarBuscador = false;
   mostrarCreador = false;
-  constructor(public listsManagerService: ListsManagerService) {
+  constructor(public listsManagerService: ListsManagerService) {}
+
+  ngOnInit(): void {
     this.listas = this.listsManagerService.listas;
   }
-
-  ngOnInit(): void {}
 
   filtrar(filtro) {
     if (filtro === '') {
@@ -29,6 +29,7 @@ export class ListsContainerComponent implements OnInit {
   }
 
   eliminarLista(id: number) {
+    this.listas = this.listsManagerService.listas;
     this.listas = this.listas.filter((lista) => {
       return lista.id !== id;
     });
@@ -36,7 +37,9 @@ export class ListsContainerComponent implements OnInit {
   }
 
   crearLista(nombre: string) {
+    debugger;
     let nuevaLista = new Lista(nombre);
+    this.listas = this.listsManagerService.listas;
     this.listas.push(nuevaLista);
     this.listsManagerService.guardarListasLocalStorage(this.listas);
   }

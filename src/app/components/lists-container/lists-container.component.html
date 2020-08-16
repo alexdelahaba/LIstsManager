@@ -73,19 +73,20 @@
 
 <div class="container"
      *ngIf="this.listsManagerService.listas.length !== 0">
+
   <div class="row">
 
-    <app-list *ngFor="let item of this.listsManagerService.listas; let i = index"
+    <app-list class="col-md-4 col-sm-6 col-12"
+              *ngFor="let item of this.listsManagerService.listas; let i = index"
               [lista]="item"
               (emisorIndiceEliminar)="eliminarLista($event)"
               [indice]="i"></app-list>
 
   </div>
+
 </div>
 <div class="alert alert-danger text-center"
      *ngIf="this.listsManagerService.listas.length === 0"
      role="alert">
   <b>No has creado ninguna lista, por favor, hazlo con el botón en la parte superior derecha de la pantalla</b>
 </div>
-
-<button (click)="imprimirListas()">imprimir listas</button>

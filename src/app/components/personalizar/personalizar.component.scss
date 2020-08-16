@@ -10,3 +10,7 @@
     width: 150px !important;
   }
 }
+
+::ng-deep .mat-card-header-text {
+  display: none;
+}

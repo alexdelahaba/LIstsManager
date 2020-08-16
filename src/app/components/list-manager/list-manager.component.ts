@@ -38,11 +38,8 @@ export class ListManagerComponent implements OnInit {
   }
 
   borrarSublista(indiceSublistaABorrar: number) {
-    // ERROR SE BORRAR LA PRIMERA LISTA
-    console.log('recibiendo');
-    debugger;
     const sublista = this.sublistas.find((sublista) => {
-      return (sublista.id = indiceSublistaABorrar);
+      return sublista.id === indiceSublistaABorrar;
     });
     this.sublistas.splice(this.sublistas.indexOf(sublista), 1);
     this.listsManagerService.guardarUnaListaLocalStorage(this.lista);
