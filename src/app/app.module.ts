@@ -16,8 +16,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { PersonalizarComponent } from './components/personalizar/personalizar.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
+
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from './../environments/environment.prod';
 @NgModule({
   declarations: [
     AppComponent,

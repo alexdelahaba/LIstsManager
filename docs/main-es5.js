@@ -647,15 +647,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _environments_environment__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-    /*! ../environments/environment */
-    "./src/environments/environment.ts");
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
-    /*! @angular/common/http */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+    var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! ./../environments/environment.prod */
+    "./src/environments/environment.prod.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -670,13 +670,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return new (t || AppModule)();
       },
       providers: [],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebase), _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"]]]
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"].initializeApp(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_17__["environment"].firebase), _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _components_lists_container_lists_container_component__WEBPACK_IMPORTED_MODULE_4__["ListsContainerComponent"], _components_list_list_component__WEBPACK_IMPORTED_MODULE_5__["ListComponent"], _components_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_12__["DialogComponent"], _components_list_manager_list_manager_component__WEBPACK_IMPORTED_MODULE_8__["ListManagerComponent"], _components_sublist_sublist_component__WEBPACK_IMPORTED_MODULE_9__["SublistComponent"], _components_personalizar_personalizar_component__WEBPACK_IMPORTED_MODULE_13__["PersonalizarComponent"], _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_14__["AuthComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"]]
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"]]
       });
     })();
     /*@__PURE__*/
@@ -687,7 +687,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
           declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _components_lists_container_lists_container_component__WEBPACK_IMPORTED_MODULE_4__["ListsContainerComponent"], _components_list_list_component__WEBPACK_IMPORTED_MODULE_5__["ListComponent"], _components_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_12__["DialogComponent"], _components_list_manager_list_manager_component__WEBPACK_IMPORTED_MODULE_8__["ListManagerComponent"], _components_sublist_sublist_component__WEBPACK_IMPORTED_MODULE_9__["SublistComponent"], _components_personalizar_personalizar_component__WEBPACK_IMPORTED_MODULE_13__["PersonalizarComponent"], _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_14__["AuthComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebase), _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_15__["AngularFireModule"].initializeApp(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_17__["environment"].firebase), _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"]],
           providers: [],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }]
@@ -4126,6 +4126,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     })();
     /***/
 
+  },
+
+  /***/
+  "./src/environments/environment.prod.ts":
+  /*!**********************************************!*\
+    !*** ./src/environments/environment.prod.ts ***!
+    \**********************************************/
+
+  /*! exports provided: environment */
+
+  /***/
+  function srcEnvironmentsEnvironmentProdTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "environment", function () {
+      return environment;
+    });
+
+    var environment = {
+      production: true,
+      firebase: {
+        apiKey: 'AIzaSyCuOM0y3OjuoWB7VWDtAQk2gFXQPkvwTDo',
+        authDomain: 'listsmanager-3f721.firebaseapp.com',
+        databaseURL: 'https://listsmanager-3f721.firebaseio.com',
+        projectId: 'listsmanager-3f721',
+        storageBucket: 'listsmanager-3f721.appspot.com',
+        messagingSenderId: '878752712737',
+        appId: '1:878752712737:web:8f3ebab98c8d7b4d1e7b60'
+      }
+    };
+    /***/
   },
 
   /***/
