@@ -23,7 +23,7 @@
      style="background-color: #3f51b5b4;"
      *ngIf="mostrarBuscador">
   <div class="col-4 offset-sm-8 mt-2">
-    <mat-form-field class="example-form-field">
+    <mat-form-field class="ml-3">
       <mat-label class="text-white">Buscar</mat-label>
       <input matInput
              type="text"
@@ -45,7 +45,7 @@
      style="background-color: #ffd740bd;"
      *ngIf="mostrarCreador">
   <div class="col-4 offset-sm-8 mt-2">
-    <mat-form-field class="example-form-field">
+    <mat-form-field class="ml-3">
       <mat-label>Nombre nueva lista</mat-label>
       <input matInput
              type="text"
@@ -63,7 +63,7 @@
     </mat-form-field>
     <button mat-flat-button
             color="primary"
-            class="ml-2"
+            class="ml-3 mb-2"
             (click)="crearLista(nombreNuevaLista.value)">Crear lista</button>
   </div>
 </div>
@@ -77,7 +77,7 @@
   <div class="row">
 
     <app-list class="col-md-4 col-sm-6 col-12"
-              *ngFor="let item of this.listsManagerService.listas; let i = index"
+              *ngFor="let item of this.listas; let i = index"
               [lista]="item"
               (emisorIndiceEliminar)="eliminarLista($event)"
               [indice]="i"></app-list>

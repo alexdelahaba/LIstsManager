@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-3">
-    <div class="col-9">
+    <div class="col-8">
       <div class="tituloSublista text-center text-white my-1 p-1"
            *ngIf="!mostrarEdicion"
            [ngClass]="{'listaInternaSeleccionada': mostrarEdicion}">{{sublista.nombre | titlecase}}</div>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="col-1 mr-3"
+    <div class="col-1 p-0"
          *ngIf="mostrarEdicion">
       <button mat-mini-fab
               color="warn"
@@ -23,7 +23,7 @@
         <mat-icon>delete</mat-icon>
       </button>
     </div>
-    <div class="col-1 mr-3">
+    <div class="col-1 p-0 ml-3">
       <button mat-mini-fab
               (click)="mostrarEdicion = !mostrarEdicion"
               color="primary"
@@ -62,7 +62,7 @@
       <ng-container *ngIf=" !(ocultarCompletados && itemLista.completado)">
 
 
-        <div class="col-11">
+        <div class="col-10">
           <mat-selection-list #options>
 
             <mat-list-option (click)="marcarCompletado(itemLista, indice)"

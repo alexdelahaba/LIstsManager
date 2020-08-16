@@ -19,8 +19,8 @@ export class ListsContainerComponent implements OnInit {
   }
 
   filtrar(filtro) {
+    this.listas = this.listsManagerService.listas;
     if (filtro === '') {
-      this.listas = this.listsManagerService.listas;
       return;
     }
     this.listas = this.listas.filter((item) => {
@@ -37,7 +37,6 @@ export class ListsContainerComponent implements OnInit {
   }
 
   crearLista(nombre: string) {
-    debugger;
     let nuevaLista = new Lista(nombre);
     this.listas = this.listsManagerService.listas;
     this.listas.push(nuevaLista);
