@@ -1,27 +1,35 @@
-# ListsManager
+# Lists Manager Responsive PWA 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+This fully responsive application is a list manager. It is integrated with firebase and allows both local and cloud management of the data entered into the application. It can be accessed with an account (only administrators) and locally, as a guest. Different tools have been used to develop the app, this information is detailed in the "Build with" section.
+It has several innovative features, such as the ability to customize the cards of the lists by changing colors, the icon...
 
-## Development server
+The app can be used directly from this link: https://alexdelahaba.github.io/LIstsManager/
+It has been deployed thanks to Github pages.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installation 🔧
 
-## Code scaffolding
+To be able to use the application you have to clone the repository to local and to run it:
+* npm install
+* ng serve
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build with 🛠️
 
-## Build
+* Angular 9
+* Bootstrap
+* AngularMaterial
+* Moment.js
+* Angularfire + firebase
+* RXJS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Screenshots 
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/1.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/2.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/3.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/4.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/5.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/6.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/7.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/8.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/9.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/10.PNG?raw=true)
+![alt text](https://github.com/alexdelahaba/LIstsManager/blob/master/src/assets/screenshots/11.PNG?raw=true)
