@@ -7,6 +7,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  { path: 'LIstsManager', component: AuthComponent },
+  { path: '', redirectTo: '/LIstsManager', pathMatch: 'full' },
   {
     path: 'lista/:id',
     component: ListManagerComponent,
@@ -22,7 +24,6 @@ const routes: Routes = [
     component: ListsContainerComponent,
     canActivate: [AuthGuard],
   },
-  { path: '', component: AuthComponent },
 ];
 
 @NgModule({

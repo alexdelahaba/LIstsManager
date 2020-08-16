@@ -402,6 +402,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/app/guards/auth.guard.ts");
 
     var routes = [{
+      path: 'LIstsManager',
+      component: _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_5__["AuthComponent"]
+    }, {
+      path: '',
+      redirectTo: '/LIstsManager',
+      pathMatch: 'full'
+    }, {
       path: 'lista/:id',
       component: _components_list_manager_list_manager_component__WEBPACK_IMPORTED_MODULE_2__["ListManagerComponent"],
       canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
@@ -413,9 +420,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       path: 'listas',
       component: _components_lists_container_lists_container_component__WEBPACK_IMPORTED_MODULE_3__["ListsContainerComponent"],
       canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
-    }, {
-      path: '',
-      component: _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_5__["AuthComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
